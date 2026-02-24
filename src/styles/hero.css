@@ -1,0 +1,196 @@
+/* ================= HERO SECTION ================= */
+
+.hero {
+    position: relative;
+    padding: 120px 60px;
+    background: linear-gradient(180deg, #fff8ee 0%, #fde8d4 100%);
+
+    /* prevents horizontal scroll from absolute elements */
+    overflow-x: clip;
+    overflow-y: hidden;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+/* ================= LEFT CONTENT ================= */
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-tag {
+    font-size: 14px;
+    color: #a15c2f;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3.8rem;
+    line-height: 1.1;
+    color: #2b2b2b;
+    margin-bottom: 20px;
+}
+
+.hero-title span {
+    background: linear-gradient(90deg, #c26d2d, #ff8c42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-subtext {
+    font-size: 18px;
+    color: #5c4a3d;
+    max-width: 500px;
+    margin-bottom: 40px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+/* ================= BUTTONS ================= */
+
+.btn-primary {
+    background: #c26d2d;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 40px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(194, 109, 45, 0.4);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid #c26d2d;
+    color: #c26d2d;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: #c26d2d;
+    color: white;
+}
+
+/* ================= RIGHT DEVICES ================= */
+
+.hero-image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    perspective: 1200px;
+    position: relative;
+}
+
+.hero-image {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.2s ease-out;
+}
+
+/* Laptop */
+.laptop {
+    width: 520px;
+    max-width: 100%;
+    z-index: 1;
+}
+
+/* iPhone overlap — FIXED (no overflow bug) */
+.iphone {
+    position: absolute;
+    right: 0;
+    bottom: -30px;
+    width: 220px;
+    z-index: 2;
+
+    /* Instead of right:-40px which caused horizontal scroll */
+    transform: translateX(40px) rotate(-10deg);
+}
+
+/* Glow */
+.hero-glow {
+    position: absolute;
+    right: 0;
+    top: 25%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.3) 0%, transparent 70%);
+    filter: blur(100px);
+    z-index: 0;
+
+    /* keep glow inside viewport */
+    transform: translateX(30%);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-image-wrapper {
+        margin-top: 60px;
+    }
+
+    .laptop {
+        width: 420px;
+    }
+
+    .iphone {
+        width: 170px;
+        bottom: -20px;
+        transform: translateX(20px) rotate(-10deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        padding: 80px 20px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-subtext {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .laptop {
+        width: 320px;
+    }
+
+    .iphone {
+        width: 130px;
+        bottom: -10px;
+        transform: translateX(10px) rotate(-10deg);
+    }
+}

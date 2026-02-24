@@ -1,0 +1,25 @@
+.section-title {
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+/* Small top label */
+
+.section-subtitle {
+    display: block;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c26d2d;
+    margin-bottom: 20px;
+}
+
+/* Main heading */
+
+.section-heading {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    line-height: 1.2;
+}

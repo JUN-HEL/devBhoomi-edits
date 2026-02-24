@@ -1,0 +1,48 @@
+.work-header {
+    text-align: center;
+    margin: 0 auto 90px auto;
+    max-width: 820px;
+}
+
+.work-script {
+    font-size: clamp(1.6rem, 3.8vw, 3.2rem);
+    font-family: "Pacifico", cursive;
+    color: var(--accent);
+    margin: 0 0 -10px;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-18px);
+    }
+}
+
+.work-title {
+    margin: 0;
+    color: var(--text);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: clamp(0.08rem, 0.35vw, 0.35rem);
+    font-size: clamp(2.2rem, 6vw, 4.2rem);
+    line-height: 1.05;
+}
+
+.work-title span {
+    color: var(--accent);
+}
+
+.work-subtitle {
+    max-width: 820px;
+    margin: 18px auto 0;
+    color: var(--muted);
+    font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+    line-height: 1.75;
+    padding: 0 10px;
+}

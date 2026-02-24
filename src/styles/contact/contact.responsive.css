@@ -1,0 +1,41 @@
+/* ================= CONTACT RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+    .contact-page {
+        padding: 110px 30px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: stretch;
+    }
+
+    .contact-form {
+        padding: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-page {
+        padding: 90px 16px;
+    }
+
+    .contact-form {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .contact-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 360px) {
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+}

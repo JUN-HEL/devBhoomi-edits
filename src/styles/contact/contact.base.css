@@ -1,0 +1,27 @@
+/* ================= CONTACT BASE ================= */
+
+.contact-page {
+    padding: 140px 60px;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+}
+
+.contact-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.contact-info,
+.contact-form-wrapper {
+    flex: 1;
+    min-width: 320px;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+    color: var(--text);
+    opacity: 0.9;
+}

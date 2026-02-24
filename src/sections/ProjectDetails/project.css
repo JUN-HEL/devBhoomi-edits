@@ -1,0 +1,43 @@
+/* ================= SERVICES SECTION ================= */
+
+.services-section {
+    position: relative;
+    padding: 140px 60px;
+    background: linear-gradient(180deg,
+            #fff8ee 0%,
+            #fffaf3 100%);
+    overflow: hidden;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* ================= GRID ================= */
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-section {
+        padding: 100px 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .services-section {
+        padding: 80px 20px;
+    }
+}

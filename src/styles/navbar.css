@@ -1,0 +1,259 @@
+/* ================= RESET ================= */
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 0;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 18px 18px;
+    z-index: 2000;
+    transition: 0.3s ease;
+}
+
+.navbar.scrolled,
+.navbar.menu-open {
+    background: rgba(255, 248, 238, 0.92);
+    backdrop-filter: blur(14px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* ================= CONTAINER ================= */
+.nav-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: visible;
+    /* prevents clipping */
+}
+
+/* ================= LOGO ================= */
+.logo {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #2b2b2b;
+    text-decoration: none;
+}
+
+/* ================= DESKTOP LINKS ================= */
+.nav-links {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #2b2b2b;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links li a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: #c26d2d;
+    transition: 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* ================= BUTTON ================= */
+.nav-btn {
+    background: #c26d2d;
+    color: #fff;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-size: 14px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.mobile-cta {
+    display: none;
+}
+
+/* ================= HAMBURGER ================= */
+.hamburger {
+    display: none;
+    border: none;
+    background: transparent;
+    padding: 10px;
+    cursor: pointer;
+    position: relative;
+    z-index: 2500;
+    /* above overlay */
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background: #2b2b2b;
+    border-radius: 2px;
+    transition: 0.25s ease;
+}
+
+.hamburger span+span {
+    margin-top: 6px;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ================= OVERLAY ================= */
+.nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.25s ease;
+    z-index: 2100;
+}
+
+.nav-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ===== NAV ACTIONS WRAPPER (so buttons align nicely) ===== */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ===== THEME TOGGLE ===== */
+.theme-toggle {
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 14px;
+    border: 1px solid var(--card-border, rgba(255, 255, 255, 0.7));
+    background: var(--card, rgba(255, 255, 255, 0.35));
+    color: var(--text, #2b2b2b);
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.25s ease;
+    backdrop-filter: blur(14px);
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px) scale(1.03);
+    border-color: color-mix(in srgb, var(--accent, #c26d2d) 40%, rgba(255, 255, 255, 0.7));
+    box-shadow: 0 12px 30px rgba(194, 109, 45, 0.18);
+}
+
+/* icon-only variant for desktop */
+.theme-toggle.icon-only {
+    width: 44px;
+    padding: 0;
+    justify-content: center;
+}
+
+.theme-icon {
+    font-size: 18px;
+    line-height: 1;
+}
+
+.theme-text {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* hide mobile theme button on desktop */
+.mobile-theme {
+    display: none;
+}
+
+/* show mobile theme button inside menu on small screens */
+@media (max-width: 768px) {
+    .mobile-theme {
+        display: block;
+    }
+
+    /* optional: make it full width inside the mobile menu */
+    .mobile-theme .theme-toggle {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+    .hamburger {
+        display: block;
+    }
+
+    /* Drawer panel */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: min(340px, 88vw);
+        background: #fff8ee;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 26px;
+        padding: 110px 0 40px;
+
+        transform: translateX(110%);
+        opacity: 0;
+        transition: transform 0.35s ease, opacity 0.25s ease;
+        z-index: 2300;
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    .nav-links li a {
+        font-size: 18px;
+    }
+
+    .mobile-cta {
+        display: block;
+    }
+
+    .mobile-btn {
+        display: inline-block;
+    }
+}

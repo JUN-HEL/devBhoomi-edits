@@ -1,0 +1,16 @@
+@media (max-width: 1024px) {
+    .work-page {
+        padding: 110px 30px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .work-page {
+        padding: 90px 16px;
+    }
+}

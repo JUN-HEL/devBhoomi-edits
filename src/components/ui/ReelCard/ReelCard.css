@@ -1,0 +1,136 @@
+.reel-card {
+    position: relative;
+    aspect-ratio: 9 / 16;
+    border-radius: 22px;
+    overflow: hidden;
+    background: #111;
+    cursor: pointer;
+}
+
+/* HERO STYLE GLOW */
+.reel-card::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border-radius: 30px;
+
+    background: radial-gradient(circle,
+            rgba(255, 140, 66, 0.7),
+            rgba(255, 140, 66, 0.3),
+            transparent 70%);
+
+    filter: blur(35px);
+    opacity: 0;
+    transition: 0.4s ease;
+    z-index: 0;
+}
+
+.reel-card:hover::before {
+    opacity: 1;
+}
+
+/* VIDEO */
+.reel-card video {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Overlay */
+.video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top,
+            rgba(249, 139, 71, 0.5),
+            transparent);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 0.4s ease;
+    z-index: 2;
+}
+
+.reel-card:hover .video-overlay {
+    opacity: 0;
+}
+
+/* Play Button */
+.play-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    background: linear-gradient(135deg, #ff8c42, #ffcc80);
+    color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 28px;
+    font-weight: bold;
+
+    box-shadow: 0 0 30px rgba(255, 140, 66, 0.6);
+}
+
+/* ================= SOUND CONTROL ================= */
+
+.sound-control {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sound-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.sound-btn:hover {
+    background: linear-gradient(135deg, #ff8c42, #ffcc80);
+    color: black;
+}
+
+/* Vertical Slider */
+.volume-slider {
+    appearance: none;
+    writing-mode: bt-lr;
+    /* vertical */
+    transform: rotate(-90deg);
+    width: 100px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* Slider Track */
+.volume-slider::-webkit-slider-runnable-track {
+    height: 4px;
+    background: rgba(255, 140, 66, 0.6);
+    border-radius: 5px;
+}
+
+/* Slider Thumb */
+.volume-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #ff8c42;
+    border-radius: 50%;
+    margin-top: -4px;
+}

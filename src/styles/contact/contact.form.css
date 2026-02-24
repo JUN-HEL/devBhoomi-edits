@@ -1,0 +1,91 @@
+/* ================= CONTACT FORM (THEME) ================= */
+
+.contact-form {
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    backdrop-filter: blur(14px);
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 14px 16px;
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.25s ease, background 0.25s ease;
+}
+
+/* Dark-mode inputs (clean + readable) */
+:root[data-theme="dark"] .contact-form input,
+:root[data-theme="dark"] .contact-form textarea {
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    color: var(--text);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+:root[data-theme="dark"] .contact-form input::placeholder,
+:root[data-theme="dark"] .contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 1px solid var(--accent);
+}
+
+.contact-btn {
+    margin-top: 10px;
+    width: fit-content;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    color: #111;
+    padding: 14px 28px;
+    border-radius: 40px;
+    border: 1px solid var(--card-border);
+    cursor: pointer;
+    transition: 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+}
+
+.contact-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Status message */
+.form-status {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.form-status.success {
+    color: #16a34a;
+}
+
+.form-status.error {
+    color: #e11d48;
+}

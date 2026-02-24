@@ -1,0 +1,180 @@
+.contact-page {
+    padding: 140px 60px;
+    background: linear-gradient(180deg, #fff8ee 0%, #fde8d4 100%);
+}
+
+/* ✅ Make layout flexible + prevent overflow */
+.contact-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    gap: 80px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    /* ✅ allow wrap if needed */
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 320px;
+    /* ✅ prevents squishing too early */
+}
+
+.contact-tag {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c26d2d;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.contact-title {
+    font-family: "Playfair Display", serif;
+    font-size: 3.2rem;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.contact-title span {
+    background: linear-gradient(90deg, #c26d2d, #ff8c42);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-text {
+    font-size: 18px;
+    color: #5c4a3d;
+    margin-bottom: 40px;
+}
+
+.contact-details p {
+    margin-bottom: 10px;
+    color: #2b2b2b;
+}
+
+/* ================= FORM ================= */
+
+.contact-form-wrapper {
+    flex: 1;
+    min-width: 320px;
+    /* ✅ prevents form getting too narrow */
+}
+
+/* ✅ full-width form on smaller screens */
+.contact-form {
+    width: 100%;
+    background: white;
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    /* ✅ important */
+    box-sizing: border-box;
+    /* ✅ important */
+    padding: 14px 16px;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border: 1px solid #c26d2d;
+}
+
+.contact-form .btn-primary {
+    margin-top: 10px;
+    width: fit-content;
+    /* ✅ nice on desktop */
+    background: #c26d2d;
+    color: white;
+    padding: 14px 28px;
+    border-radius: 40px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact-form .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(194, 109, 45, 0.4);
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* ✅ Tablet and below */
+@media (max-width: 1024px) {
+    .contact-page {
+        padding: 110px 30px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        gap: 40px;
+        align-items: stretch;
+        /* ✅ makes both sections full width */
+    }
+
+    .contact-title {
+        font-size: 2.6rem;
+    }
+
+    .contact-form {
+        padding: 35px;
+    }
+}
+
+/* ✅ Small phones */
+@media (max-width: 600px) {
+    .contact-page {
+        padding: 90px 16px;
+    }
+
+    .contact-tag {
+        font-size: 12px;
+        letter-spacing: 1.5px;
+    }
+
+    .contact-title {
+        font-size: 2.1rem;
+    }
+
+    .contact-text {
+        font-size: 16px;
+    }
+
+    .contact-form {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    /* ✅ button becomes full width on small screens */
+    .contact-form .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ✅ Tiny devices (super small width) */
+@media (max-width: 360px) {
+    .contact-title {
+        font-size: 1.9rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+}

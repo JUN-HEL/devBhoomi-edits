@@ -1,0 +1,57 @@
+/* ================= GLOBAL CURSOR / TOUCH GLOW ================= */
+
+.global-cursor-glow {
+    --gx: 50vw;
+    --gy: 50vh;
+
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+
+/* active when mouse moves or touch starts */
+.global-cursor-glow.glow-active {
+    opacity: 1;
+}
+
+/* The glow blob */
+.global-cursor-glow::before {
+    content: "";
+    position: absolute;
+    left: var(--gx);
+    top: var(--gy);
+    width: 520px;
+    height: 520px;
+    transform: translate(-50%, -50%);
+
+    background: radial-gradient(circle,
+            rgba(245, 162, 0, 0.18) 0%,
+            transparent 70%);
+
+    filter: blur(45px);
+}
+
+/* DARK MODE: stronger for contrast */
+:root[data-theme="dark"] .global-cursor-glow::before {
+    background: radial-gradient(circle,
+            rgba(245, 162, 0, 0.26) 0%,
+            transparent 70%);
+    filter: blur(55px);
+}
+
+/* Mobile: smaller glow + a bit faster fade */
+@media (max-width: 768px) {
+    .global-cursor-glow {
+        transition: opacity 0.18s ease;
+    }
+
+    .global-cursor-glow::before {
+        width: 340px;
+        height: 340px;
+        filter: blur(50px);
+    }
+}
