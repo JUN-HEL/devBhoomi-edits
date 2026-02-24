@@ -1,0 +1,129 @@
+/* ================= FOOTER ================= */
+
+.footer {
+    background: linear-gradient(180deg, color-mix(in srgb, var(--bg-2) 70%, transparent), var(--bg-2));
+    padding: 100px 60px 40px;
+    margin-top: 120px;
+    border-top: 1px solid var(--card-border);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 60px;
+}
+
+/* BRAND */
+.footer-brand h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.footer-brand p {
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.footer-msme {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    padding: 12px 18px;
+    border-radius: 12px;
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 13px;
+    box-shadow: var(--shadow);
+}
+
+.footer-msme strong {
+    color: var(--accent);
+}
+
+/* LINKS */
+.footer-links h4,
+.footer-contact h4 {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: var(--text);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a,
+.footer-contact a {
+    text-decoration: none;
+    color: var(--muted);
+    transition: 0.25s ease;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+    color: var(--accent);
+}
+
+/* CONTACT */
+.footer-contact p {
+    margin-bottom: 10px;
+    color: var(--muted);
+}
+
+.footer-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.footer-socials a {
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 18%, transparent);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.footer-socials a:hover {
+    transform: translateY(-2px);
+}
+
+/* BOTTOM */
+.footer-bottom {
+    text-align: center;
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid color-mix(in srgb, var(--text) 10%, transparent);
+    font-size: 14px;
+    color: var(--muted);
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .footer-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer {
+        padding: 60px 20px 30px;
+    }
+
+    .footer-container {
+        grid-template-columns: 1fr;
+    }
+}
