@@ -1,26 +1,49 @@
-/* ================= GLOBAL THEME SYSTEM ================= */
+/* ================= THEME TOKENS (SINGLE SOURCE OF TRUTH) ================= */
 
-/* LIGHT MODE (default) */
+/* LIGHT THEME (default) */
 :root {
+    /* Header heights */
+    --topinfo-h: 40px;
+    --nav-h: 68px;
+
+    /* Backgrounds */
     --bg: #fff8ee;
     --bg-2: #fde8d4;
 
+    /* Text */
     --text: #2b2b2b;
     --muted: #5c4a3d;
 
+    /* Surfaces */
     --card: rgba(255, 255, 255, 0.45);
-    --card-border: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(0, 0, 0, 0.1);
 
+    /* Brand */
     --accent: #c26d2d;
     --accent-2: #ff8c42;
 
+    /* Effects */
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+
+    /* ✅ TopInfo Strip (LIGHT) */
+    --topinfo-bg: rgba(255, 248, 238, 0.92);
+    --topinfo-border: rgba(0, 0, 0, 0.08);
+    --topinfo-pill-bg: rgba(245, 162, 0, 0.12);
+    --topinfo-pill-border: rgba(245, 162, 0, 0.22);
 }
 
-/* DARK MODE */
+/* MOBILE HEIGHTS */
+@media (max-width: 600px) {
+    :root {
+        --topinfo-h: 34px;
+        --nav-h: 56px;
+    }
+}
+
+/* DARK THEME */
 :root[data-theme="dark"] {
-    --bg: #000000;
-    --bg-2: #050505;
+    --bg: #050505;
+    --bg-2: #000000;
 
     --text: #ffffff;
     --muted: rgba(255, 255, 255, 0.75);
@@ -32,9 +55,15 @@
     --accent-2: #ffb347;
 
     --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
+
+    /* ✅ TopInfo Strip (DARK) */
+    --topinfo-bg: rgba(0, 0, 0, 0.45);
+    --topinfo-border: rgba(255, 255, 255, 0.12);
+    --topinfo-pill-bg: rgba(245, 162, 0, 0.14);
+    --topinfo-pill-border: rgba(245, 162, 0, 0.25);
 }
 
-/* Apply globally */
+/* Apply theme to the page */
 body {
     background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
     color: var(--text);

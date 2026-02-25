@@ -1,14 +1,48 @@
 /* ================= HERO BASE (LAYOUT + BG + GLOW + RESPONSIVE) ================= */
 
+/* Set your navbar height once */
+:root {
+    --nav-h: 78px;
+    /* adjust if your navbar is taller/shorter */
+}
+
 .hero {
     position: relative;
-    padding: 120px 60px;
+
+    /* ✅ FIX: prevents collision with fixed navbar */
+    padding: 60px 120px;
 
     /* Theme background */
     background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
 
     overflow-x: clip;
     overflow-y: hidden;
+}
+
+/* ✅ Optional: premium background image layer (put image in /public/images/hero-bg.jpg) */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/images/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    opacity: 0.16;
+    /* subtle so text stays clean */
+    transform: scale(1.05);
+    z-index: 0;
+}
+
+/* ✅ Contrast overlay so text stays readable on any image */
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 10%,
+            rgba(255, 255, 255, 0.35),
+            transparent 60%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 60%);
+    z-index: 1;
 }
 
 .hero-container {
@@ -20,6 +54,7 @@
     gap: 60px;
     position: relative;
     z-index: 2;
+    /* above bg layers */
 }
 
 /* Glow (theme-aware) */
@@ -31,7 +66,7 @@
     height: 500px;
     background: radial-gradient(circle, rgba(245, 162, 0, 0.28) 0%, transparent 70%);
     filter: blur(100px);
-    z-index: 0;
+    z-index: 2;
     transform: translateX(30%);
 }
 
@@ -45,7 +80,25 @@
 }
 
 @media (max-width: 600px) {
+    :root {
+        --nav-h: 72px;
+        /* slightly smaller on mobile */
+    }
+
     .hero {
+        /* ✅ Fix: ensure hero always starts BELOW navbar */
         padding: 80px 20px;
+    }
+
+    .hero::before {
+        opacity: 0.12;
+        /* make image even softer on phones */
+    }
+
+    .hero-glow {
+        width: 380px;
+        height: 380px;
+        top: 18%;
+        filter: blur(90px);
     }
 }

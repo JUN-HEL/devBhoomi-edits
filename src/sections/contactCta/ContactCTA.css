@@ -1,0 +1,227 @@
+/* src/components/ContactCTA/ContactCTA.css */
+
+.contact-cta {
+    padding: 90px 20px;
+}
+
+.contact-cta-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-cta-head {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.contact-cta-tag {
+    display: inline-block;
+    font-family: "Pacifico", cursive;
+    color: var(--accent);
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+}
+
+.contact-cta-title {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.12rem;
+    color: var(--text);
+}
+
+.contact-cta-title span {
+    color: var(--accent);
+}
+
+.contact-cta-subtitle {
+    max-width: 70ch;
+    margin: 14px auto 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Grid */
+.contact-cta-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    /* ✅ slightly more premium */
+}
+
+/* Card base */
+.contact-cta-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 18px 16px;
+    border-radius: 18px;
+    text-decoration: none;
+
+    background: color-mix(in srgb, var(--card) 78%, transparent);
+    border: 1px solid color-mix(in srgb, var(--card-border) 70%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    overflow: hidden;
+    transform: translateZ(0);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.10);
+
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* Soft highlight */
+.contact-cta-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0));
+    opacity: 0.75;
+}
+
+/* Brand glow blob */
+.contact-cta-card::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    right: -130px;
+    top: -130px;
+    pointer-events: none;
+    background: radial-gradient(circle, var(--glow) 0%, transparent 65%);
+    opacity: 0.55;
+    filter: blur(18px);
+}
+
+/* Hover */
+.contact-cta-card:hover {
+    transform: translateY(-6px);
+    border-color: color-mix(in srgb, var(--glow) 55%, var(--card-border));
+    box-shadow: 0 22px 65px rgba(0, 0, 0, 0.16);
+}
+
+.contact-cta-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 16px;
+
+    display: grid;
+    place-items: center;
+
+    background: color-mix(in srgb, var(--glow) 16%, var(--card));
+    border: 1px solid color-mix(in srgb, var(--glow) 38%, var(--card-border));
+    box-shadow: 0 10px 26px rgba(0, 0, 0, 0.08);
+}
+
+.contact-cta-icon-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+/* Meta */
+.contact-cta-meta {
+    flex: 1;
+    min-width: 0;
+}
+
+.contact-cta-name {
+    color: var(--text);
+    font-weight: 900;
+    letter-spacing: 0.02rem;
+}
+
+.contact-cta-desc {
+    margin-top: 4px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.contact-cta-arrow {
+    color: var(--text);
+    opacity: 0.65;
+    font-size: 18px;
+}
+
+/* Platform glow colors */
+.contact-cta-card.is-whatsapp {
+    --glow: rgba(37, 211, 102, 0.75);
+}
+
+.contact-cta-card.is-instagram {
+    --glow: rgba(225, 48, 108, 0.75);
+}
+
+.contact-cta-card.is-email {
+    --glow: rgba(255, 140, 66, 0.75);
+}
+
+.contact-cta-card.is-facebook {
+    --glow: rgba(24, 119, 242, 0.75);
+}
+
+/* Footer */
+.contact-cta-foot {
+    text-align: center;
+    margin-top: 18px;
+    color: var(--muted);
+}
+
+.contact-cta-foot a {
+    color: var(--accent);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.contact-cta-foot a:hover {
+    text-decoration: underline;
+}
+
+/* Dark mode refinements */
+:root[data-theme="dark"] .contact-cta-card {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 18px 70px rgba(0, 0, 0, 0.45);
+}
+
+:root[data-theme="dark"] .contact-cta-card::before {
+    opacity: 0.35;
+}
+
+:root[data-theme="dark"] .contact-cta-card::after {
+    opacity: 0.65;
+}
+
+/* If your PNG icons are dark, brighten them on dark mode */
+:root[data-theme="dark"] .contact-cta-icon-img {
+    filter: brightness(1.4) contrast(1.1);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .contact-cta-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 520px) {
+    .contact-cta {
+        padding: 70px 14px;
+    }
+
+    .contact-cta-title {
+        letter-spacing: 0.08rem;
+    }
+
+    .contact-cta-grid {
+        grid-template-columns: 1fr;
+    }
+}

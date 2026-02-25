@@ -1,15 +1,16 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useEffect, useState } from "react";
 import GlobalCursorGlow from "./components/effects/GlobalCursorGlow";
+import ScrollReveal from "./components/effects/ScrollReveal";
 
+import TopInfoBar from "./components/infoStrip/TopInfoBar";
 import Navbar from "./components/layout/Navbar/Navbar";
-import Footer from "./components/layout/Footer";
+import Footer from "./components/layout/Footer/Footer";
 
 import Home from "./pages/Home";
 import ProjectDetails from "./pages/ProjectDetails";
 import Contact from "./pages/contact/Contact";
 import Work from "./pages/work/Work";
-
 function App() {
   const [theme, setTheme] = useState("light");
 
@@ -39,8 +40,10 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar theme={theme} toggleTheme={toggleTheme} />
+      <ScrollReveal />
       <GlobalCursorGlow />
+      <TopInfoBar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
 
       <Routes>
         <Route path="/" element={<Home />} />

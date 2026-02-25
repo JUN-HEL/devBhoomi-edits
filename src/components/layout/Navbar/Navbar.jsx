@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import "./navbar.css";
-
+import { Link } from "react-router-dom";
 import NavbarLinks from "./NavbarLinks";
 import ThemeToggle from "./ThemeToggle";
 import { useNavbar } from "./useNavbar";
+import NavbarLogo from "./NavBarLogo";
 
 const Navbar = ({ theme, toggleTheme }) => {
     const { scrolled, menuOpen, closeMenu, toggleMenu } = useNavbar();
@@ -11,9 +11,7 @@ const Navbar = ({ theme, toggleTheme }) => {
     return (
         <nav className={`navbar ${scrolled ? "scrolled" : ""} ${menuOpen ? "menu-open" : ""}`}>
             <div className="nav-container">
-                <Link to="/" className="logo" onClick={closeMenu}>
-                    DevBoomi
-                </Link>
+                <NavbarLogo onClick={closeMenu} />
 
                 {/* overlay */}
                 <div className={`nav-overlay ${menuOpen ? "show" : ""}`} onClick={closeMenu} />

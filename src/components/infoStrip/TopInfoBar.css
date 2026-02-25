@@ -1,0 +1,87 @@
+/* ================= TOP INFO STRIP ================= */
+
+/* NOTE:
+   Do NOT define --topinfo-h or theme colors here.
+   Those should live in theme.css (single source of truth). */
+
+.topinfo {
+    height: var(--topinfo-h);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3000;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--topinfo-bg);
+    border-bottom: 1px solid var(--topinfo-border);
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+}
+
+.topinfo-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 6px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.topinfo-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: var(--text);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+
+    opacity: 0.95;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.topinfo-item:hover {
+    transform: translateY(-1px);
+    opacity: 1;
+}
+
+.topinfo-sep {
+    color: var(--muted);
+    opacity: 0.7;
+    user-select: none;
+}
+
+
+/* Mobile */
+@media (max-width: 520px) {
+    .topinfo-container {
+        justify-content: space-between;
+        gap: 10px;
+        padding: 6px 12px;
+    }
+
+    .topinfo-sep {
+        display: none;
+    }
+
+    .topinfo-item {
+        font-size: 13px;
+    }
+
+    /* hide long text so strip never becomes 2 lines */
+    .topinfo-text {
+        display: none;
+    }
+}

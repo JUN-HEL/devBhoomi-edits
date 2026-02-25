@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&display=swap");
 
 *,
@@ -14,11 +14,122 @@ body {
     overflow-x: hidden;
 }
 
-/* ================= THEME TOKENS ================= */
+/* ================= HEADER HEIGHT TOKENS ================= */
+:root {
+    --topinfo-h: 40px;
+    --nav-h: 68px;
+}
 
-/* Light mode (your warm palette) */
+/* Mobile */
+@media (max-width: 600px) {
+    :root {
+        --topinfo-h: 34px;
+        --nav-h: 56px;
+    }
+}
 
-/* root {
+/* Push content below fixed TopInfo + Navbar */
+body {
+    padding-top: calc(var(--topinfo-h) + var(--nav-h));
+}
+
+.whatsapp-float {
+    position: fixed;
+    right: 16px;
+    bottom: 18px;
+    z-index: 99999;
+
+    width: 54px;
+    height: 54px;
+    border-radius: 999px;
+
+    display: grid;
+    place-items: center;
+
+    background: #25D366;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.28);
+}
+
+.wa-img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+@media (max-width: 520px) {
+    .whatsapp-float {
+        right: 12px;
+        bottom: 14px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .wa-img {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* ================= SCROLL REVEAL ================= */
+[data-reveal] {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 700ms ease, transform 700ms ease;
+    will-change: opacity, transform;
+}
+
+/* revealed state */
+[data-reveal].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* variants */
+[data-reveal="left"] {
+    transform: translateX(-18px);
+}
+
+[data-reveal="right"] {
+    transform: translateX(18px);
+}
+
+[data-reveal="zoom"] {
+    transform: scale(0.96);
+}
+
+[data-reveal="left"].is-revealed,
+[data-reveal="right"].is-revealed {
+    transform: translateX(0);
+}
+
+[data-reveal="zoom"].is-revealed {
+    transform: scale(1);
+}
+
+/* stagger support */
+[data-reveal-delay] {
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce) {
+    [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+}
+
+/* ================= THEME TOKENS (RECOMMENDED) ================= */
+/* If you already define these elsewhere, keep only one source of truth */
+/* :root {
     --bg: #fff8ee;
     --bg-2: #fde8d4;
 
@@ -32,8 +143,15 @@ body {
     --accent-2: #ff8c42;
 
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-}
 
+
+    --topinfo-bg: rgba(255, 248, 238, 0.92);
+    --topinfo-border: rgba(0, 0, 0, 0.08);
+    --topinfo-pill-bg: rgba(245, 162, 0, 0.12);
+    --topinfo-pill-border: rgba(245, 162, 0, 0.22);
+}
+*/
+/*
 :root[data-theme="dark"] {
     --bg: #050505;
     --bg-2: #000000;
@@ -48,8 +166,12 @@ body {
     --accent-2: #ffb347;
 
     --shadow: 0 18px 60px rgba(0, 0, 0, 0.45);
-}
 
+    --topinfo-bg: rgba(0, 0, 0, 0.45);
+    --topinfo-border: rgba(255, 255, 255, 0.12);
+    --topinfo-pill-bg: rgba(245, 162, 0, 0.14);
+    --topinfo-pill-border: rgba(245, 162, 0, 0.25);
+}
 
 body {
     background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
