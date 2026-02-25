@@ -47,7 +47,7 @@ const ContactCTA = () => {
 
                 <div className="contact-cta-foot" data-reveal style={{ "--reveal-delay": "120ms" }}>
                     <p>
-                        Prefer a call? <a href={`tel:+${contact.phone}`}>+91 8588064988</a>
+                        Prefer a call? <a href={`tel:+${contact.phone}`}>+91 8218749995</a>
                     </p>
                 </div>
             </div>

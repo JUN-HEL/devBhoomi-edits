@@ -1,10 +1,13 @@
 import { useRef } from "react";
+import HeroBadge from "./HeroBadge";
 import HeroContent from "./HeroContent";
 import HeroDevices from "./HeroDevices";
+
 import "./hero.base.css";
 import "./hero.typography.css";
 import "./hero.buttons.css";
 import "./hero.devices.css";
+
 const Hero = () => {
     const deviceRef = useRef(null);
 
@@ -28,12 +31,19 @@ const Hero = () => {
     return (
         <section className="hero" id="home">
             <div className="hero-container">
-                <HeroContent />
+
+                {/* LEFT SIDE CONTENT */}
+                <div className="hero-left">
+                    <HeroContent />
+                </div>
+
+                {/* RIGHT SIDE DEVICES */}
                 <HeroDevices
                     deviceRef={deviceRef}
                     onMove={handleMouseMove}
                     onLeave={handleMouseLeave}
                 />
+
             </div>
 
             <div className="hero-glow" aria-hidden="true" />
