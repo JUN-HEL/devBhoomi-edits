@@ -6,7 +6,7 @@ import FooterContact from "./FooterContact";
 
 
 const Footer = () => {
-    const phone = "918588064988"; // no +
+    const phone = "+918218749995"; // no +
     return (
         <footer className="footer">
             <a

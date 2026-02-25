@@ -3,7 +3,7 @@
 export const contact = {
   phone: "918588064988", // WhatsApp number (no +)
   email: "info@yourdomain.com",
-  instagram: "https://instagram.com/yourhandle",
+  instagram: "https://www.instagram.com/devbhoomi_edits_kotdwara?igsh=MW5ndmR1dGpscWpoaQ%3D%3D",
   facebook: "https://facebook.com/yourpage",
 };
 
